@@ -17,6 +17,7 @@ public class Building {
         this.floors = 1;
         this.employees = 1;
         this.elevators.add(new Elevator());
+        this.localTime = new Date();
     }
 
     public int getFloors() {
@@ -62,5 +63,9 @@ public class Building {
     public void setLocalTime(String input) throws ParseException {
         SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss");
         localTime = ft.parse(input);
+    }
+
+    public int getActiveEmployees() {
+        return isOpen() ? employees : 0;
     }
 }

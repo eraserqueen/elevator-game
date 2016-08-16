@@ -60,7 +60,11 @@ public class BuildingTest {
         Assert.assertNotEquals(0, building.getCurrentEnergyConsumption());
     }
     @Test
-    public final void ShouldHaveAnInternalClock() {
+    public final void ShouldHaveAnInternalClock(){
+        Assert.assertNotNull(building.getLocalTime());
+    }
+    @Test
+    public final void CanModifyInternalClock() {
         try {
             building.setLocalTime("2016-11-09 19:08:00");
         } catch (ParseException e) {
@@ -100,11 +104,25 @@ public class BuildingTest {
 
     @Test
     public final void WhenBuildingIsClosed_ShouldHaveZeroActiveEmployees() {
-
+        try {
+            building.setLocalTime("2016-08-15 21:00:00");
+            Assert.assertFalse(building.isOpen());
+        } catch (ParseException e) {
+            Assert.fail();
+        }
+        Assert.assertEquals(0, building.getActiveEmployees());
     }
 
     @Test
     public final void WhenBuildingIsOpen_ShouldHaveAllActiveEmployees() {
+        try {
+            building.setLocalTime("2016-08-15 12:00:00");
+            Assert.assertTrue(building.isOpen());
+        } catch (ParseException e) {
+            Assert.fail();
+        }
+        Assert.assertEquals(building.getEmployees(), building.getActiveEmployees());
+
     }
 
 }
