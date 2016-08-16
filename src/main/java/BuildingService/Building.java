@@ -14,8 +14,8 @@ public class Building {
     private Date localTime;
 
     public Building() {
-        this.floors = 1;
-        this.employees = 1;
+        this.floors = 30;
+        this.employees = 1500;
         this.elevators.add(new Elevator());
         this.localTime = new Date();
     }
@@ -44,16 +44,6 @@ public class Building {
         if(Integer.parseInt(hours.format(localTime)) < 7) return false;
         if(Integer.parseInt(hours.format(localTime)) >= 19) return false;
         return true;
-    }
-
-    public void setFloors(int floors) {
-        if(floors<=0) throw new RuntimeException("There must be at least one floor");
-        this.floors = floors;
-    }
-
-    public void setEmployees(int employees) {
-        if(employees<=0) throw new RuntimeException("There must be at least one employee");
-        this.employees = employees;
     }
 
     public Date getLocalTime() {

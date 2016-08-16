@@ -7,7 +7,7 @@ Your role is to maximize employee satisfaction when using the elevators, while m
 Building specs:
 - The building is 30 stories high.
 - There are 1500 employees in the building, evenly spread across floors.
-- Employees come in to work between 7 and 9am (rush hour is 8am) and leave between 4pm and 6pm (rush hour is 5pm).
+- Employees come in to work between 7 and 9am (rush hour is 8am) and leave between 4pm and 7pm (rush hour is 5pm).
 - Some employees have lunch outside between 11am and 1pm (rush hour is 12am).
 
 Employees rate their satisfaction on a scale of 100.

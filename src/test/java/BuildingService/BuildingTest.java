@@ -20,33 +20,13 @@ public class BuildingTest {
     }
 
     @Test
-    public final void ShouldHaveAtLeastOneFloor() {
-        Assert.assertTrue(building.getFloors() > 0);
+    public final void ShouldHaveThirtyFloors() {
+        Assert.assertEquals(30, building.getFloors());
     }
 
     @Test
-    public final void CanHaveMultipleFloors() {
-        building.setFloors(3);
-        Assert.assertEquals(3, building.getFloors());
-    }
-
-    @Test(expected = RuntimeException.class)
-    public final void CannotHaveNegativeFloors() {
-        building.setFloors(-1);
-    }
-    @Test
-    public final void ShouldHaveAtLeastOneEmployee() {
-        Assert.assertTrue(building.getEmployees() > 0);
-    }
-
-    @Test
-    public final void CanHaveMultipleEmployees() {
-        building.setEmployees(1000);
-        Assert.assertEquals(1000, building.getEmployees());
-    }
-    @Test(expected = RuntimeException.class)
-    public final void CannotHaveNegativeEmployees() {
-        building.setEmployees(-1);
+    public final void ShouldHave1500Employee() {
+        Assert.assertEquals(1500, building.getEmployees());
     }
 
     @Test
