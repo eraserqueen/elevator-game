@@ -5,8 +5,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class BuildingTest {
     private Building building;
@@ -62,27 +60,39 @@ public class BuildingTest {
         Assert.assertNotEquals(0, building.getCurrentEnergyConsumption());
     }
     @Test
-    public final void WhenCurrentTimeIsBefore7am_ShouldBeClosed(){
+    public final void ShouldHaveAnInternalClock() {
         try {
-            Assert.assertFalse(building.isOpen(fromIso("2016-08-15 04:00:00")));
+            building.setLocalTime("2016-11-09 19:08:00");
+        } catch (ParseException e) {
+            Assert.fail();
+        }
+        Assert.assertNotNull(building.getLocalTime());
+    }
+    @Test
+    public final void WhenBuildingTimeIsBefore7am_ShouldBeClosed() {
+        try {
+            building.setLocalTime("2016-08-15 04:00:00");
+            Assert.assertFalse(building.isOpen());
         } catch (ParseException e) {
             Assert.fail();
         }
 
     }
     @Test
-    public final void WhenCurrentTimeIsAfter7pm_ShouldBeClosed(){
+    public final void WhenBuildingTimeIsAfter7pm_ShouldBeClosed() {
         try {
-            Assert.assertFalse(building.isOpen(fromIso("2016-08-15 21:00:00")));
+            building.setLocalTime("2016-08-15 21:00:00");
+            Assert.assertFalse(building.isOpen());
         } catch (ParseException e) {
             Assert.fail();
         }
 
     }
     @Test
-    public final void WhenCurrentTimeIsBetween7amAnd7pm_ShouldBeOpen(){
+    public final void WhenBuildingTimeIsBetween7amAnd7pm_ShouldBeOpen() {
         try {
-            Assert.assertTrue(building.isOpen(fromIso("2016-08-15 12:00:00")));
+            building.setLocalTime("2016-08-15 12:00:00");
+            Assert.assertTrue(building.isOpen());
         } catch (ParseException e) {
             Assert.fail();
         }
@@ -95,10 +105,6 @@ public class BuildingTest {
 
     @Test
     public final void WhenBuildingIsOpen_ShouldHaveAllActiveEmployees() {
-    }
-    private Date fromIso(String input) throws ParseException {
-        SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss");
-        return ft.parse(input);
     }
 
 }

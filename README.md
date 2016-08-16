@@ -21,6 +21,7 @@ Elevators start at their minimum speed of 3 seconds per floor.
 - If the elevator's next stop is over 10 floors away, it will accelerate to reach maximum speed after 3 floors, then decelerrate 3 floors before reaching their destination.
 - Elevators travel at a maximum speed of 1 second per floor.
 - Elevators travel at the same speed going up or down.
+- Each floor stop lasts at least 5 seconds for doors to open/close plus a variable amount per people that need to enter/exit
 - Electricity cost increases the faster an elevator moves, or the more weight it carries.
 
 Your Dashboard:
@@ -31,6 +32,16 @@ Your Dashboard:
 - You can adjust the number of elevators available.
 - You can adjust the programming of each elevator individually (making them express/all stops/or anything in between).
 - You can only adjust the elevators at night while employees are away.
+- You can see graphical representations of all variables (employee, elevators, electricity)
+
+The game:
+- Starts in PAUSED state with clock set to Monday 6:59AM
+- You are allowed to build your initial elevator design
+- When the PLAY button is pressed, the clocks starts ticking at the rate of 5 game minutes per real second. It can't be PAUSED until the end of the game.
+- From 7AM to 7PM employees come in/out and use the elevators
+- At the end of the work day, you are allowed to modify elevators again, while the clock keeps ticking
+- The cycle repeats for 5 days (Monday to Friday)
+- on Friday 7PM the game ends with your final score
 
 Scoring:
 - Your score is the inverse of employee dissatisfaction * electricity costs.
