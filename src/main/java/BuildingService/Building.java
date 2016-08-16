@@ -12,12 +12,14 @@ public class Building {
     private int floors;
     private int employees;
     private Date localTime;
+    private int maxEnergyCapacity;
 
     public Building() {
         this.floors = 30;
         this.employees = 1500;
         this.elevators.add(new Elevator());
         this.localTime = new Date();
+        this.maxEnergyCapacity = 100000;
     }
 
     public int getFloors() {
@@ -57,5 +59,9 @@ public class Building {
 
     public int getActiveEmployees() {
         return isOpen() ? employees : 0;
+    }
+
+    public int getMaxEnergyCapacity() {
+        return maxEnergyCapacity;
     }
 }

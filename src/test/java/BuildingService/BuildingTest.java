@@ -107,4 +107,9 @@ public class BuildingTest {
 
     }
 
+    @Test
+    public final void ShouldHaveAMaximumEnergyCapacity(){
+        Assert.assertNotNull(building.getMaxEnergyCapacity());
+    }
+
 }

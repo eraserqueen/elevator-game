@@ -18,8 +18,10 @@ Employees rate their satisfaction on a scale of 100.
 - Some employees prefer waiting the shortest possible time, even if the elevator stops often before they reach their floor.
 
 Elevators start at their minimum speed of 3 seconds per floor.
-- If the elevator's next stop is over 10 floors away, it will accelerate to reach maximum speed after 3 floors, then decelerrate 3 floors before reaching their destination.
+- If the elevator's next stop is over 10 floors away, it will accelerate to reach maximum speed after 3 floors, then decelerate 3 floors before reaching their destination.
 - Elevators travel at a maximum speed of 1 second per floor.
+- Elevators have a maximum weight capacity of 2048kg
+- Elevators over capacity cannot move
 - Elevators travel at the same speed going up or down.
 - Each floor stop lasts at least 5 seconds for doors to open/close plus a variable amount per people that need to enter/exit
 - Electricity cost increases the faster an elevator moves, or the more weight it carries.
@@ -30,6 +32,8 @@ Your Dashboard:
 - You can see the amount of people waiting at ground level.
 - You cannot see the amount of people waiting on any other floor.
 - You can adjust the number of elevators available.
+- You can adjust the maximum capacity of elevators (as long as it doesn't exceed the original specs)
+- You can adjust the maximum speed of elevators (as long as it doesn't exceed the original specs)
 - You can adjust the programming of each elevator individually (making them express/all stops/or anything in between).
 - You can only adjust the elevators at night while employees are away.
 - You can see graphical representations of all variables (employee, elevators, electricity)
