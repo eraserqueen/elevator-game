@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.text.ParseException;
+import java.util.Date;
 
 public class BuildingTest {
     private Building building;
@@ -45,12 +46,13 @@ public class BuildingTest {
     }
     @Test
     public final void CanModifyInternalClock() {
+        Date oldDate = building.getLocalTime();
         try {
             building.setLocalTime("2016-11-09 19:08:00");
         } catch (ParseException e) {
             Assert.fail();
         }
-        Assert.assertNotNull(building.getLocalTime());
+        Assert.assertNotEquals(oldDate, building.getLocalTime());
     }
     @Test
     public final void WhenBuildingTimeIsBefore7am_ShouldBeClosed() {
